@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="diamant_violet" data-name="diamant violet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 594.65 575.31">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #938fd1;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M180.92,275.52c57.59,0,104.27-46.68,104.27-104.27h24.26c0,57.59,46.68,104.27,104.27,104.27v24.26c-57.59,0-104.27,46.68-104.27,104.27h-24.26c0-57.59-46.68-104.27-104.27-104.27v-24.26Z"/>
+</svg>

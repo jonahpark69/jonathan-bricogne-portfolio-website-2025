@@ -1,0 +1,700 @@
+/* ===== Reset minimal ===== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #1a1a1a;
+  background: #e9e9eb; /* gris clair comme la maquette */
+}
+
+/* ===== Layout global ===== */
+.page{
+  max-width: 1280px;
+  min-height: 100vh;
+  margin: 24px auto;
+  background: #ededee;
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+  display: grid;
+  grid-template-columns: 260px 1fr 56px; /* sidebar / content / rail droit */
+  gap: 0;
+  overflow: hidden;
+}
+
+/* ===== Sidebar gauche ===== */
+.sidebar{
+  background: #4b4b4f;                 /* bande grise foncée */
+  display: grid;
+  grid-template-rows: 180px 1fr;
+}
+
+.sidebar__top{
+  position: relative;
+  background: #4b4b4f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 12px;
+}
+
+.avatar{
+  width: 132px;
+  height: 132px;
+  padding: 6px;                        /* anneau blanc */
+  background: #ffffff;
+  border-radius: 9999px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+.avatar img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+/* ===== Bande jaune + menu ===== */
+.menu{
+  background: #f2b705;                 /* jaune */
+  padding: 24px 0;
+}
+.menu ul{
+  list-style: none;
+  margin: 0;
+  padding: 0 0;
+  display: grid;
+  gap: 18px;
+}
+.menu a{
+  display: block;
+  padding: 10px 24px;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.menu a:hover{ opacity: 0.8; }
+.menu .is-active{
+  background: rgba(0,0,0,0.08);
+  border-left: 4px solid #1a1a1a;
+}
+
+/* ===== Rail droit ===== */
+.rail{
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rail ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 15px;
+  margin-top: -480px;  /* tes positions actuelles */
+  margin-left: -25px;
+}
+
+/* Taille des icônes + transition douce */
+.rail img,
+.rail svg{
+  width: 60px;
+  height: 60px;
+  display: block;
+  transition: transform .18s ease, filter .18s ease;
+  filter: none; /* état normal : pas d’ombre */
+}
+
+.rail a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #1a1a1a;
+  cursor: pointer;
+
+  /* suppression du fond rond */
+  width: auto;
+  height: auto;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Hover : ombre décalée en bas + à droite */
+.rail a:hover img,
+.rail a:hover svg{
+  transform: translateY(-2px);
+  /*        X    Y    flou   couleur(opacité) */
+  filter: drop-shadow(6px 10px 16px rgba(0,0,0,0.28));
+}
+
+/* Active : ombre plus courte, toujours bas/droite */
+.rail a:active img,
+.rail a:active svg{
+  transform: translateY(-1px);
+  filter: drop-shadow(4px 8px 12px rgba(0,0,0,0.24));
+}
+
+/* === Ligne verticale + flèches derrière les icônes === */
+.rail{ position: relative; }
+.rail ul{
+  position: relative;          /* base pour la tige */
+  z-index: 0;
+}
+
+/* Tige verticale centrée derrière les icônes */
+.rail ul::before{
+  content: "";
+  position: absolute;
+  left: 50%;                   /* centre horizontal */
+  transform: translateX(-50%);
+  top: -12px;                  /* dépasse un peu au-dessus */
+  bottom: -12px;               /* et en-dessous */
+  width: 2px;                  /* épaisseur de la tige */
+  background: #1a1a1a;         /* couleur de la tige */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Les icônes passent au-dessus de la tige */
+.rail li{
+  position: relative;
+  z-index: 1;
+}
+
+/* Flèche en haut (triangle) */
+.rail li:first-child::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -18px;                  /* distance au-dessus de la 1re icône */
+  width: 0; height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 12px solid #1a1a1a;   /* ▲ pointe vers le haut */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Flèche en bas (triangle) */
+.rail li:last-child::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -18px;               /* distance sous la dernière icône */
+  width: 0; height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 12px solid #1a1a1a;      /* ▼ pointe vers le bas */
+  z-index: 0;
+  pointer-events: none;
+}
+
+
+/* ===== Contenu principal ===== */
+.content{
+  background: #ededee;
+  padding: 28px 28px 40px 28px;
+}
+
+/* ===== Titre ===== */
+.content__head{
+  display: flex;
+  align-items: center;
+  gap: 0;                /* plus de trait, on retire l'espace */
+  margin-bottom: 10px;
+}
+/* (le trait .dash a été supprimé du HTML, donc pas de règle .dash ici) */
+.content__head h1{
+  margin: 0;
+  font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+  letter-spacing: 1px;
+  font-size: 80px;       /* taille desktop */
+  line-height: 1;
+}
+
+/* ===== Filtres (chips) ===== */
+.filters{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 16px 0 22px 0;
+  flex-wrap: wrap;
+}
+
+/* CHIPS stylées (hover voyant) */
+.chip{
+  position: relative;
+  display: inline-block;
+  appearance: none;
+  padding: 10px 18px;
+  border: 2px solid #1a1a1a;
+  background: #ffffff;
+  border-radius: 9999px;
+  font-weight: 800;
+  font-size: 13px;
+  color: #1a1a1a;
+  cursor: pointer;
+  overflow: hidden; /* pour l'effet shine */
+  transition: transform .18s ease, box-shadow .18s ease,
+              background-color .18s ease, color .18s ease, border-color .18s ease,
+              letter-spacing .18s ease;
+}
+.chip::after{
+  content:"";
+  position:absolute;
+  top:0; left:-60px;
+  width:40px; height:100%;
+  background: rgba(255,255,255,.55);
+  filter: blur(2px);
+  transform: skewX(-25deg) translateX(0);
+  opacity:0;
+  transition: transform .35s ease, opacity .35s ease;
+}
+.chip:hover{
+  transform: translateY(-4px) scale(1.05);
+  letter-spacing: .5px;
+  background: #1a1a1a;    /* inversion franche */
+  color: #ffffff;
+  border-color: #1a1a1a;
+  box-shadow: 0 12px 24px rgba(0,0,0,.25), 0 0 0 4px rgba(242,183,5,.75);
+}
+.chip:hover::after{
+  opacity:1;
+  transform: skewX(-25deg) translateX(260%); /* balayage lumineux */
+}
+.chip--active{
+  background: #f2b705;
+  border-color: #f2b705;
+  color: #1a1a1a;
+}
+.chip--active:hover{
+  background: #e0ab05; /* un peu plus foncé au survol */
+  box-shadow: 0 12px 24px rgba(0,0,0,.25), 0 0 0 4px rgba(26,26,26,.35);
+  transform: translateY(-4px) scale(1.05);
+}
+.chip:active{
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 0 6px 12px rgba(0,0,0,.2);
+}
+.chip:focus-visible{
+  outline: 3px solid #f2b705;
+  outline-offset: 3px;
+}
+
+/* ===== Grille de projets (par défaut) ===== */
+.projects{ }
+.grid{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.tile{
+  display: block;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+}
+.tile img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform .2s ease;
+}
+.tile:hover img{ transform: scale(1.03); }
+
+/* ===== BENTO GRID (7 blocs, tailles variées) ===== */
+.grid.bento{
+  grid-template-columns: repeat(5, 1fr);  /* 6 colonnes fines = bento flexible */
+  grid-auto-rows: 110px;                   /* hauteur de cellule */
+  grid-auto-flow: dense;                   /* comble intelligemment les trous */
+  gap: 18px;
+}
+/* Spans largeur/hauteur */
+.span-w1{ grid-column: span 1; } .span-w2{ grid-column: span 2; }
+.span-w3{ grid-column: span 3; } .span-w4{ grid-column: span 4; }
+.span-h1{ grid-row: span 1; }    .span-h2{ grid-row: span 2; }
+.span-h3{ grid-row: span 3; }    .span-h4{ grid-row: span 4; }
+/* Tuile qui remplit la case bento */
+.grid.bento .tile{ height: 100%; }
+/* Les images couvrent les formes (neutralise le 4/3) */
+.grid.bento .tile img{
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1100px){
+  .grid{ grid-template-columns: repeat(3, 1fr); }
+  .grid.bento{ grid-template-columns: repeat(4, 1fr); } /* bento se resserre */
+}
+
+@media (max-width: 900px){
+  .page{ grid-template-columns: 220px 1fr 56px; }
+  .content__head h1{ font-size: 40px; }
+}
+
+@media (max-width: 740px){
+  /* sidebar passe en haut, contenu en dessous, rail caché */
+  .page{
+    grid-template-columns: 1fr;
+  }
+  .rail{ display: none; }
+  .sidebar{
+    grid-template-rows: auto auto;
+    display: grid;
+    grid-column: 1 / -1;
+  }
+  .sidebar__top{ padding: 16px 0; }
+  .menu ul{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    padding: 8px 8px 12px 8px;
+  }
+  .menu a{
+    text-align: center;
+    padding: 10px 8px;
+    border-left: 0;
+  }
+
+  .content{ padding: 18px; }
+  .content__head h1{ font-size: 34px; }
+
+  /* Grilles */
+  .grid{ grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .grid.bento{
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 120px;
+  }
+  /* Sur mobile, on simplifie : chaque bloc occupe 1x1 */
+  .grid.bento > li{
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+}
+
+@media (max-width: 420px){
+  .grid{ grid-template-columns: 1fr; }
+}
+
+/* ===============================
+   CV PAGE — styles (scopés .cv)
+   Ajoute ce bloc à la fin de ton CSS
+   =============================== */
+
+/* Conteneur principal de la page CV (placé dans <main class="content cv">) */
+.content.cv { padding: 28px; }
+.cv-sheet{
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px 28px;
+}
+
+/* ====== En-tête (nom + rôle) ====== */
+.cv-header{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: end;
+  margin-bottom: 12px;
+}
+.cv-title{
+  margin: 0;
+  font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: #111111;
+  text-transform: uppercase;
+}
+.cv-title.stroke{
+  color: transparent;
+  -webkit-text-stroke: 2px #111111;
+  text-stroke: 2px #111111;
+}
+.cv-header .left .cv-title{ text-align: left; }
+.cv-header .right .cv-title{ text-align: right; }
+
+/* ====== Décor ligne + diamants (SVG) — 1 diamant de chaque côté du paragraphe ====== */
+
+/* traits au-dessus et en dessous (inchangés) */
+.cv-deco{
+  position: relative;
+  height: 26px;
+  margin: 6px 0 14px;
+  background: linear-gradient(#111111, #111111) center/100% 2px no-repeat;
+  z-index: 0; /* reste derrière les diamants */
+}
+.cv-deco--below{ margin: 14px 0 6px; }
+
+/* on neutralise tout diamant posé directement sur les lignes */
+.cv-deco::before,
+.cv-deco::after{ content: none !important; }
+
+/* paragraphe avec diamants centrés entre les deux lignes */
+.cv-tagline{
+  position: relative;
+  z-index: 1; /* passe au-dessus des lignes */
+  margin: 0 0 18px;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.4;
+  color: #111111;
+  text-align: center;
+}
+
+/* diamants (SVG) à gauche et à droite, chevauchent légèrement les deux lignes */
+.cv-tagline::before,
+.cv-tagline::after{
+  content: "";
+  position: absolute;
+  top: 50%;                         /* centré entre les deux traits */
+  transform: translateY(-50%);      /* ajuste verticalement */
+  width: 270px;                      /* ↑ augmente pour mordre davantage sur les traits */
+  height: 270px;
+  background: url("../media/icons/diamant-violet-2.svg") center/contain no-repeat; /* ← chemin vers TON SVG */
+  pointer-events: none;
+}
+
+.cv-tagline::before{ left: -140px; }                                   /* diamant gauche */
+.cv-tagline::after { right: -140px; transform: translateY(-50%) scaleX(-1); } /* diamant droit en miroir */
+
+/* (option) pour chevauchement encore plus visible : */
+/* .cv-tagline::before, .cv-tagline::after{ width: 38px; height: 38px; } */
+/* ou décale très légèrement : */
+/* .cv-tagline::before, .cv-tagline::after{ top: calc(50% + 1px); } */
+
+
+/* ====== CV grid à 2 colonnes + bloc pleine largeur (+ séparateur central) ====== */
+.cv-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* 2 colonnes */
+  gap: 24px;
+  align-items: stretch;              /* pour que la ligne couvre toute la hauteur */
+  grid-template-areas:
+    "left right"
+    "mid  mid";
+}
+.cv-left{  grid-area: left;  }
+.cv-right{
+  grid-area: right;
+  position: relative;                /* base pour le séparateur */
+}
+
+/* Séparateur vertical entre les 2 colonnes (au centre du gap) */
+.cv-right::before{
+  content: "";
+  position: absolute;
+  left: -12px;                       /* = moitié du gap (24px / 2) */
+  top: 0;
+  bottom: 0;
+  width: 2px;                        /* épaisseur du trait */
+  background: #111111;               /* couleur du trait */
+  pointer-events: none;
+}
+
+/* Bloc pleine largeur en dessous (ex-colonne du milieu) */
+.cv-mid{
+  grid-area: mid;
+  padding: 20px 0;
+  border-top: 2px solid #111111;
+  border-bottom: 2px solid #111111;
+  border-left: 0;
+  border-right: 0;
+}
+/* au cas où d’anciennes règles mettaient des bordures latérales */
+.cv-mid{ border-left: 0 !important; border-right: 0 !important; }
+
+/* ====== Responsive ====== */
+@media (max-width: 900px){
+  .cv-grid{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "left"
+      "right"
+      "mid";
+    gap: 20px;
+  }
+  /* on retire le séparateur en mobile */
+  .cv-right::before{ display: none; }
+
+  .cv-mid{
+    margin: 14px 0;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+}
+
+
+
+/* ====== Blocs & titres ====== */
+.cv-block{ margin-bottom: 22px; }
+.cv-block h2{
+  margin: 20px 0 10px;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #8b78ff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.cv-block h3{
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #111111;
+}
+.cv-muted{
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #333333;
+}
+.cv-list{
+  margin: 0;
+  padding-left: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.cv-list li{ margin-bottom: 6px; }
+
+/* ====== Langues & tags ====== */
+.cv-tags{
+  display: grid;
+  gap: 6px;
+}
+.cv-tag{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid #111111;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.cv-tag small{ font-weight: 600; color: #333333; }
+
+/* ====== Petites séparations ====== */
+.cv-sep{ height: 1px; background: #111111; opacity: .2; margin: 14px 0; }
+
+/* ====== Responsive ====== */
+@media (max-width: 1100px){
+  .cv-grid{ grid-template-columns: 280px 1fr 280px; }
+  .cv-title{ font-size: 48px; }
+}
+@media (max-width: 900px){
+  .cv-grid{ grid-template-columns: 1fr; }
+  .cv-mid{
+    border-left: 0; border-right: 0; padding: 0;
+    border-top: 2px solid #111111; border-bottom: 2px solid #111111;
+    margin: 14px 0;
+    padding-top: 14px; padding-bottom: 14px;
+  }
+  .cv-header{ grid-template-columns: 1fr; }
+  .cv-header .right .cv-title{ text-align: left; }
+  .cv-deco::before{ left: 10%; }
+  .cv-deco::after{ right: 10%; }
+}
+
+/* ============ CV — Rail social en bas, horizontal, SANS trait ni flèches ============ */
+
+/* 1) Layout : 2 colonnes + le rail plein-large en dessous (page CV uniquement) */
+body:has(.content.cv) .page{
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "sidebar content"
+    "rail    rail";
+}
+
+/* 2) Zones */
+body:has(.content.cv) .sidebar{ grid-area: sidebar; }
+body:has(.content.cv) .content{ grid-area: content; }
+body:has(.content.cv) .rail{
+  grid-area: rail;
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  padding: O 0 20px;
+}
+
+/* 3) Liste horizontale */
+body:has(.content.cv) .rail ul{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 0 !important;
+  padding: 0;
+}
+
+/* (nettoyage) désactive tout décor hérité : ligne/ flèches */
+body:has(.content.cv) .rail ul::before,
+body:has(.content.cv) .rail ul::after,
+body:has(.content.cv) .rail li:first-child::before,
+body:has(.content.cv) .rail li:first-child::after,
+body:has(.content.cv) .rail li:last-child::before,
+body:has(.content.cv) .rail li:last-child::after{
+  content: none !important;
+}
+
+/* 4) Icônes (design conservé) */
+body:has(.content.cv) .rail img,
+body:has(.content.cv) .rail svg{
+  width: 60px;
+  height: 60px;
+  display: block;
+  transition: transform .18s ease, filter .18s ease;
+}
+body:has(.content.cv) .rail a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #1a1a1a;
+  width: auto;
+  height: auto;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+body:has(.content.cv) .rail a:hover img,
+body:has(.content.cv) .rail a:hover svg{
+  transform: translateY(-2px);
+  filter: drop-shadow(6px 10px 16px rgba(0,0,0,0.28));
+}
+body:has(.content.cv) .rail a:active img,
+body:has(.content.cv) .rail a:active svg{
+  transform: translateY(-1px);
+  filter: drop-shadow(4px 8px 12px rgba(0,0,0,0.24));
+}
+
+/* 5) Mobile */
+@media (max-width: 740px){
+  body:has(.content.cv) .page{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "sidebar"
+      "content"
+      "rail";
+    row-gap: 16px;
+  }
+}
+
+

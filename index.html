@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Portfolio — Jonathan</title>
   <link rel="preload" as="image" href="https://picsum.photos/seed/hero/200/200">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
@@ -15,17 +15,17 @@
     <aside class="sidebar">
       <div class="sidebar__top">
         <div class="avatar">
-          <img src="https://picsum.photos/seed/you/200/200" alt="Photo de profil">
+          <img src="assets/media/img/selfie-1.png" alt="Photo de profil">
         </div>
       </div>
 
-      <nav class="menu">
+      <nav class="menu" aria-label="Navigation latérale">
         <ul>
-          <li><a class="is-active" href="#">Home</a></li>
-          <li><a href="#">About me</a></li>
-          <li><a href="#">Resume</a></li>
+          <li><a class="is-active" href="#">Accueil</a></li>
+          <li><a href="#">À propos de moi</a></li>
+          <li><a href="#">CV</a></li>
           <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Testimonials</a></li>
+          <li><a href="#">Témoignages</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </nav>
@@ -34,53 +34,102 @@
     <!-- ====== Contenu principal ====== -->
     <main class="content">
       <header class="content__head">
-        <span class="dash"></span>
         <h1>PORTFOLIO</h1>
       </header>
 
       <!-- Filtres -->
-      <div class="filters">
-        <button class="chip chip--active">All</button>
-        <button class="chip">Print design</button>
-        <button class="chip">Web design</button>
-        <button class="chip">Photography</button>
+      <div class="filters" role="tablist" aria-label="Filtres de projets">
+        <button class="chip chip--active" role="tab" aria-selected="true">Tous</button>
+        <button class="chip" role="tab">Fragrance française</button>
+        <button class="chip" role="tab">Doughlicious</button>
+        <button class="chip" role="tab">Kokoro matcha</button>
+        <button class="chip" role="tab">Boukla</button>
+        <button class="chip" role="tab">Kajitsuawa</button>
+        <button class="chip" role="tab">L'atelier floral</button>
+        <button class="chip" role="tab">S1m.yol</button>
       </div>
 
-      <!-- Grille de projets -->
+      <!-- Grille de projets (Bento : 7 blocs) -->
       <section aria-label="Projets" class="projects">
-        <ul class="grid">
-          <!-- 12 items pour matcher la maquette -->
-          <li><a href="#" class="tile"><img src="https://picsum.photos/seed/p1/480/360" alt=""></a></li>
-          <li><a href="#" class="tile"><img src="https://picsum.photos/seed/p2/480/360" alt=""></a></li>
-          <li><a href="#" class="tile"><img src="https://picsum.photos/seed/p3/480/360" alt=""></a></li>
+        <ul class="grid bento">
+  <!-- Grand hero carré à gauche -->
+  <li class="span-w3 span-h2">
+    <a href="#" class="tile" aria-label="Projet 1">
+      <img src="assets/media/img/fleur-de-nuit-image-mock-up-5.png" alt="Projet 1">
+    </a>
+  </li>
 
-          <li><a href="#" class="tile"><img src="https://picsum.photos/seed/p4/480/360" alt=""></a></li>
-          <li><a href="#" class="tile"><img src="https://picsum.photos/seed/p5/480/360" alt=""></a></li>
-          <li><a href="#" class="tile"><img src="https://picsum.photos/seed/p6/480/360" alt=""></a></li>
+  <!-- Petit bloc en haut à droite -->
+  <li class="span-w2 span-h2">
+    <a href="#" class="tile" aria-label="Projet 2">
+      <img src="assets/media/img/mockup-image-doughlicious-1.png" alt="Projet 2">
+    </a>
+  </li>
 
-          <li><a href="#" class="tile"><img src="https://picsum.photos/seed/p7/480/360" alt=""></a></li>
-          <li><a href="#" class="tile"><img src="https://picsum.photos/seed/p8/480/360" alt=""></a></li>
-          <li><a href="#" class="tile"><img src="https://picsum.photos/seed/p9/480/360" alt=""></a></li>
+  <!-- Vertical (colonne de droite) -->
+  <li class="span-w2 span-h3">
+    <a href="#" class="tile" aria-label="Projet 3">
+      <img src="assets/media/img/kokoro-matcha-image-6.png" alt="Projet 3">
+    </a>
+  </li>
 
-          <li><a href="#" class="tile"><img src="https://picsum.photos/seed/p10/480/360" alt=""></a></li>
-          <li><a href="#" class="tile"><img src="https://picsum.photos/seed/p11/480/360" alt=""></a></li>
-          <li><a href="#" class="tile"><img src="https://picsum.photos/seed/p12/480/360" alt=""></a></li>
-        </ul>
+  <!-- Deux petits pour combler sous le hero -->
+  <li class="span-w3 span-h3">
+    <a href="#" class="tile" aria-label="Projet 4">
+      <img src="assets/media/img/boukla-img-5.png" alt="Projet 4">
+    </a>
+  </li>
+  <li class="span-w3 span-h2">
+    <a href="#" class="tile" aria-label="Projet 5">
+      <img src="assets/media/img/kajitsuawa-mock-up-image-1.png" alt="Projet 5">
+    </a>
+  </li>
+
+  <!-- Deux horizontaux en bas -->
+  <li class="span-w2 span-h2">
+    <a href="#" class="tile" aria-label="Projet 6">
+      <img src="assets/media/img/mock-up-l'atelier-floral-1.png" alt="Projet 6">
+    </a>
+  </li>
+  <li class="span-w2 span-h3">
+    <a href="#" class="tile" aria-label="Projet 7">
+      <img src="assets/media/img/nom-11.png" alt="Projet 7">
+    </a>
+  </li>
+</ul>
+
       </section>
     </main>
 
     <!-- ====== Rail droit (icônes) ====== -->
-    <aside class="rail">
-      <ul>
-        <li><a href="#" aria-label="Behance">B</a></li>
-        <li><a href="#" aria-label="Dribbble">D</a></li>
-        <li><a href="#" aria-label="LinkedIn">in</a></li>
-        <li><a href="#" aria-label="Instagram">IG</a></li>
-        <li><a href="#" aria-label="Email">@</a></li>
-      </ul>
+    <aside class="rail" aria-label="Réseaux sociaux">
+      <ul class="socials">
+  <li>
+    <a href="https://behance.net/tonprofil" aria-label="Behance" target="_blank" rel="noopener">
+      <img src="assets/media/icons/behance.svg" alt="" width="24" height="24" loading="lazy">
+    </a>
+  </li>
+  <li>
+    <a href="https://linkedin.com/in/tonprofil" aria-label="LinkedIn" target="_blank" rel="noopener">
+      <img src="assets/media/icons/linkedin.svg" alt="" width="24" height="24" loading="lazy">
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/tonprofil" aria-label="GitHub" target="_blank" rel="noopener">
+      <img src="assets/media/icons/github.svg" alt="" width="24" height="24" loading="lazy">
+    </a>
+  </li>
+  <li>
+    <a href="mailto:hello@tonsite.com" aria-label="Email">
+      <img src="assets/media/icons/mail.svg" alt="" width="24" height="24" loading="lazy">
+    </a>
+  </li>
+</ul>
+
     </aside>
 
   </div>
 
 </body>
 </html>
+

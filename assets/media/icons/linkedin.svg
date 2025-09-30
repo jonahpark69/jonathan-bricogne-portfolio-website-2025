@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="icons_2" data-name="icons 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Degradado_sin_nombre_109);
+      }
+
+      .cls-2 {
+        fill: url(#Degradado_sin_nombre_109-2);
+      }
+
+      .cls-3 {
+        fill: url(#Degradado_sin_nombre_109-3);
+      }
+
+      .cls-4 {
+        fill: url(#Degradado_sin_nombre_109-4);
+      }
+    </style>
+    <linearGradient id="Degradado_sin_nombre_109" data-name="Degradado sin nombre 109" x1="146.75" y1="71.16" x2="353.25" y2="428.84" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8ab53a"/>
+      <stop offset=".5" stop-color="#fad860"/>
+      <stop offset="1" stop-color="#cc8c37"/>
+    </linearGradient>
+    <linearGradient id="Degradado_sin_nombre_109-2" data-name="Degradado sin nombre 109" x1="158.52" y1="193.71" x2="183.92" y2="149.71" xlink:href="#Degradado_sin_nombre_109"/>
+    <linearGradient id="Degradado_sin_nombre_109-3" data-name="Degradado sin nombre 109" x1="135.27" y1="346.17" x2="207.17" y2="221.64" xlink:href="#Degradado_sin_nombre_109"/>
+    <linearGradient id="Degradado_sin_nombre_109-4" data-name="Degradado sin nombre 109" x1="239.2" y1="365.6" x2="326.35" y2="214.66" xlink:href="#Degradado_sin_nombre_109"/>
+  </defs>
+  <path class="cls-1" d="M354.98,93.14c28.61,0,51.88,23.28,51.88,51.88v209.95c0,28.61-23.27,51.88-51.88,51.88h-209.95c-28.61,0-51.88-23.28-51.88-51.88v-209.95c0-28.61,23.28-51.88,51.88-51.88h209.95M354.98,81.87h-209.95c-34.74,0-63.16,28.42-63.16,63.16v209.95c0,34.74,28.42,63.16,63.16,63.16h209.95c34.74,0,63.16-28.42,63.16-63.16v-209.95c0-34.74-28.42-63.16-63.16-63.16h0Z"/>
+  <g>
+    <path class="cls-2" d="M171.22,146.32c-14.03,0-25.4,11.37-25.4,25.4s11.37,25.4,25.4,25.4,25.4-11.37,25.4-25.4-11.37-25.4-25.4-25.4Z"/>
+    <rect class="cls-3" x="148.29" y="214.12" width="45.86" height="139.56"/>
+    <path class="cls-4" d="M303.14,210.84c-17.64,0-30.04,8.42-38.71,19.17v-15.88h-45.86v139.56h45.86v-81.78c1.24-17.57,13.79-22.15,22.68-22.15,9.37,0,21.21,4.56,21.21,30.21v73.73h45.86v-98.3s-2.05-44.55-51.04-44.55Z"/>
+  </g>
+</svg>
