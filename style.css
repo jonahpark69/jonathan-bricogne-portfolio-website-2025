@@ -1,0 +1,230 @@
+/* ===== Reset minimal ===== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #1a1a1a;
+  background: #e9e9eb; /* gris clair comme la maquette */
+}
+
+/* ===== Layout global ===== */
+.page{
+  max-width: 1280px;
+  min-height: 100vh;
+  margin: 24px auto;
+  background: #ededee;
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+  display: grid;
+  grid-template-columns: 260px 1fr 56px; /* sidebar / content / rail droit */
+  gap: 0;
+  overflow: hidden;
+}
+
+/* ===== Sidebar gauche ===== */
+.sidebar{
+  background: #4b4b4f;                 /* bande grise foncée */
+  display: grid;
+  grid-template-rows: 180px 1fr;
+}
+
+.sidebar__top{
+  position: relative;
+  background: #4b4b4f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 12px;
+}
+
+.avatar{
+  width: 132px;
+  height: 132px;
+  padding: 6px;                        /* anneau blanc */
+  background: #ffffff;
+  border-radius: 9999px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+.avatar img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+/* Bande jaune + menu */
+.menu{
+  background: #f2b705;                 /* jaune */
+  padding: 24px 0;
+}
+.menu ul{
+  list-style: none;
+  margin: 0;
+  padding: 0 0;
+  display: grid;
+  gap: 18px;
+}
+.menu a{
+  display: block;
+  padding: 10px 24px;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.menu a:hover{ opacity: 0.8; }
+.menu .is-active{
+  background: rgba(0,0,0,0.08);
+  border-left: 4px solid #1a1a1a;
+}
+
+/* ===== Rail droit ===== */
+.rail{
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rail ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+.rail a{
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  color: #1a1a1a;
+  background: #f2b705;       /* pastilles jaune */
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+.rail a:hover{ transform: translateY(-2px); }
+
+/* ===== Contenu principal ===== */
+.content{
+  background: #ededee;
+  padding: 28px 28px 40px 28px;
+}
+
+/* Titre */
+.content__head{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.content__head .dash{
+  width: 36px;
+  height: 4px;
+  background: #1a1a1a;
+  display: inline-block;
+  border-radius: 2px;
+}
+.content__head h1{
+  margin: 0;
+  font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+  letter-spacing: 1px;
+  font-size: 48px;
+}
+
+/* Filtres (chips) */
+.filters{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 16px 0 22px 0;
+  flex-wrap: wrap;
+}
+.chip{
+  appearance: none;
+  border: 1px solid #cfcfd4;
+  background: #ffffff;
+  border-radius: 9999px;
+  padding: 8px 14px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+.chip:hover{ background: #f7f7f9; }
+.chip--active{
+  background: #f2b705;
+  border-color: #f2b705;
+}
+
+/* Grille de projets */
+.projects{ }
+.grid{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.tile{
+  display: block;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+}
+.tile img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform .2s ease;
+}
+.tile:hover img{ transform: scale(1.03); }
+
+/* ===== Responsive simple ===== */
+@media (max-width: 1100px){
+  .grid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 900px){
+  .page{ grid-template-columns: 220px 1fr 56px; }
+  .content__head h1{ font-size: 40px; }
+}
+
+@media (max-width: 740px){
+  /* sidebar passe en haut, contenu en dessous, rail caché */
+  .page{
+    grid-template-columns: 1fr;
+  }
+  .rail{ display: none; }
+  .sidebar{
+    grid-template-rows: auto auto;
+    display: grid;
+    grid-column: 1 / -1;
+  }
+  .sidebar__top{ padding: 16px 0; }
+  .menu ul{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    padding: 8px 8px 12px 8px;
+  }
+  .menu a{
+    text-align: center;
+    padding: 10px 8px;
+    border-left: 0;
+  }
+
+  .content{ padding: 18px; }
+  .content__head h1{ font-size: 34px; }
+  .grid{ grid-template-columns: repeat(2, 1fr); gap: 14px; }
+}
+
+@media (max-width: 420px){
+  .grid{ grid-template-columns: 1fr; }
+}
