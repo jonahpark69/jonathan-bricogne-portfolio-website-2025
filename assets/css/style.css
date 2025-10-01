@@ -697,4 +697,519 @@ body:has(.content.cv) .rail a:active svg{
   }
 }
 
+/* ======================= */
+/* Footer (portfolio site) */
+/* ======================= */
 
+.site-footer{
+  border-top: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #1a1a1a;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.site-footer__inner{
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr; /* brand / nav / social */
+  gap: 24px;
+  align-items: start;
+}
+
+/* Branding */
+.site-footer__logo{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+.site-footer__logo-text{
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+.site-footer__tagline{
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #4b5563;
+}
+
+/* Liens */
+.site-footer__links{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.site-footer__links a{
+  text-decoration: none;
+  color: #1a1a1a;
+  font-size: 14px;
+}
+.site-footer__links a:hover,
+.site-footer__links a:focus{
+  text-decoration: underline;
+}
+
+/* Réseaux (balises <img>) */
+.site-footer__social-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 12px;
+}
+.site-footer__social-list a{
+  width: 36px;
+  height: 36px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: #ffffff;
+}
+.site-footer__social-list a:hover,
+.site-footer__social-list a:focus{
+  background: #f3f4f6;
+}
+
+/* Icônes */
+.site-footer__icon{
+  display: block;
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+/* Assure qu'on est bien en flex */
+.site-footer__social-list{
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Espace horizontal entre les icônes */
+.site-footer__social-list li + li{
+  margin-left: 20px;  /* ← change cette valeur en px */
+}
+
+
+/* Bas de page */
+.site-footer__bottom{
+  max-width: 1280px;
+  margin: 12px auto 0;
+  padding: 12px 16px 0;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.site-footer__copyright{
+  margin: 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+.site-footer__legal{
+  font-size: 12px;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+.site-footer__legal:hover,
+.site-footer__legal:focus{
+  text-decoration: underline;
+}
+
+/* Accessibilité (si besoin pour d'autres éléments) */
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .site-footer__inner{
+    grid-template-columns: 1fr;
+  }
+  .site-footer__social-list{
+    flex-wrap: wrap;
+  }
+  .site-footer__bottom{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Donne de l'air à gauche et à droite du contenu */
+.about-me__content{
+  padding: 10px 40px;   /* top/bottom 10px, left/right 40px */
+  min-width: 0;         /* évite tout débordement en grid */
+}
+
+/* Écarte le contenu du dashboard uniquement */
+.about-me__content{
+  margin-left: 60px;   /* ajuste: 24px / 32px / 56px selon ton œil */
+  min-width: 0;        /* sécurité anti-débordement en grid */
+}
+
+/* Garde propre sur mobile */
+@media (max-width: 900px){
+  .about-me__content{ margin-left: 0; }
+}
+
+
+/* Titre / lead (ligne « I’m Sarita Smith… ») */
+.about-me__leadline{
+  margin: 0 0 10px 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 34px;
+  letter-spacing: 0.2px;
+  color: #1a1a1a;
+}
+.about-me__leadline strong{ font-weight: 700; }
+
+/* Paragraphe d’intro sous le lead */
+.about-me__desc{
+  margin: 0 0 24px 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333333;
+}
+
+/* Deux colonnes : services / fun facts (déjà proche) */
+.about-me__panels{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* Titre “pilule” jaune centré */
+.about-me__panel-title{
+  margin: 0 0 16px 0;
+  text-align: center;
+  height: auto;
+}
+.about-me__panel-title span{
+  display: inline-block;
+  background: #f4b22a;
+  color: #1a1a1a;
+  font: 700 16px/1 Inter, sans-serif;
+  padding: 9px 16px;
+  border-radius: 16px;
+}
+
+/* Services (icône ronde jaune + textes) */
+.about-me__services{
+  margin: 0; padding: 0; list-style: none;
+  display: grid; gap: 18px;
+}
+.service{
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 14px;
+  align-items: center;
+}
+.service__icon{
+  width: 64px; height: 64px;
+  background: #f4b22a;
+  border-radius: 999px;
+  display: flex; align-items: center; justify-content: center;
+}
+.service__icon img{ width: 34px; height: 34px; object-fit: contain; }
+.service__title{
+  margin: 0 0 4px 0;
+  font-size: 14px; font-weight: 700; letter-spacing: 0.6px;
+}
+.service__desc{
+  margin: 0; font-size: 13px; line-height: 1.6; color:#333333;
+}
+
+/* Fun facts : grille 3×2 de cercles noirs */
+.about-me__facts-grid{
+  margin: 0; padding: 0; list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.fact__circle{
+  width: 160px; height: 160px;
+  margin: 0 auto;
+  border-radius: 999px;
+  background: #111111;
+  color: #f4b22a;
+  display: grid; align-content: center; justify-items: center;
+  text-align: center;
+  padding: 16px;
+}
+.fact__number{
+  font-weight: 700; font-size: 34px; color:#f4b22a; margin-bottom: 6px;
+}
+.fact__label{
+  font-weight: 700; font-size: 12px; color:#ffffff;
+  letter-spacing: 0.8px; line-height: 1.3;
+}
+
+/* Responsive (ramène en 1 colonne si besoin) */
+@media (max-width: 900px){
+  .about-me__panels{ grid-template-columns: 1fr; }
+  .about-me__facts-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px){
+  .about-me__leadline{ font-size: 28px; }
+  .about-me__facts-grid{ grid-template-columns: repeat(2, 1fr); }
+  .fact__circle{ width: 130px; height: 130px; }
+}
+
+/* ======================= */
+/* Page Contact (scopée)   */
+/* ======================= */
+
+/* Air autour du contenu pour l'écarter du dashboard (gauche) et du rail (droite) */
+.content .contact{
+  padding-top: 20px;
+  padding-bottom: 32px;
+  padding-left: 40px;   /* écarte du dashboard */
+  padding-right: 56px;  /* écarte du rail social */
+  min-width: 0;
+}
+
+/* === Contact : écarter le main du dashboard (gauche) === */
+body:has(.contact) .content{
+  margin-left: 70px;   /* 24px / 32px / 40px / 56px selon ton œil */
+  min-width: 0;
+}
+
+/* Mobile */
+@media (max-width: 900px){
+  body:has(.contact) .content{
+    margin-left: 0;
+    padding: 0 16px;
+  }
+}
+
+/* Titre principal */
+.content .contact__title{
+  margin: 0 0 10px 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+
+/* Sous-titre + intro */
+.content .contact__lead{
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  color: #4b4b4b;
+}
+.content .contact__lead strong{ font-weight: 700; color:#1a1a1a; }
+.content .contact__intro{
+  margin: 0 0 22px 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555555;
+  max-width: 900px;
+}
+
+/* Grille des 3 blocs */
+.content .contact__grid{
+  list-style: none;
+  margin: 0;
+  padding: 18px 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Carte individuelle */
+.content .contact__item{
+  background: transparent; /* maquette = fond gris global, cartes transparentes */
+  display: grid;
+  grid-template-rows: auto auto;
+  justify-items: center;
+  text-align: center;
+}
+
+/* Icône ronde jaune */
+.content .contact__icon{
+  width: 110px;
+  height: 110px;
+  border-radius: 999px;
+  background: #f4b22a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.content .contact__icon img{
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+/* Lignes de contact */
+.content .contact__data{ }
+.content .contact__line{
+  margin: 4px 0;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+}
+.content .contact__line a{
+  color: #1a1a1a;
+  text-decoration: none;
+}
+.content .contact__line a:hover{ text-decoration: underline; }
+
+/* Message de fin */
+.content .contact__thanks{
+  margin: 28px 0 0 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: 2px;
+  color: #1a1a1a;
+}
+
+/* Responsive */
+@media (max-width: 1000px){
+  .content .contact{ padding-left: 24px; padding-right: 24px; }
+  .content .contact__grid{ grid-template-columns: 1fr; gap: 18px; }
+  .content .contact__item{ justify-items: start; text-align: left; }
+}
+
+/* ========================= */
+/* Page Témoignages (scopée) */
+/* ========================= */
+
+/* Témoignages — décale le main à droite */
+body:has(.testimonials) .content{
+  margin-left: 60px;   /* ⇦ augmente si tu veux (24/32/40/56 px) */
+  min-width: 0;
+}
+
+/* Mobile */
+@media (max-width: 900px){
+  body:has(.testimonials) .content{ margin-left: 0; }
+}
+
+
+/* Titre principal */
+.testimonials__head{ margin: 0 0 12px 0; }
+.testimonials__title{
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+
+/* Grille 2×2 */
+.testimonials__grid{
+  list-style: none;
+  margin: 12px 0 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Carte */
+.tcard{
+  background: #4b4b4b;      /* gris foncé maquette */
+  color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 140px 1fr;  /* photo / contenu */
+  gap: 16px;
+  align-items: start;
+}
+
+/* Media */
+.tcard__media{
+  width: 140px; height: 140px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #2d2d2d;
+}
+.tcard__media img{
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+/* Corps */
+.tcard__body{ }
+.tcard__name{
+  margin: 0 0 4px 0;
+  font-size: 24px;
+  font-weight: 800;
+  color: #f4b22a;            /* jaune accent */
+  letter-spacing: 0.4px;
+}
+.tcard__role{
+  margin: 0 0 10px 0;
+  font-size: 12px;
+  font-weight: 800;
+  color: #e5e5e5;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.tcard__text{
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #f0f0f0;
+}
+
+/* Bas de carte : étoiles + date */
+.tcard__meta{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tcard__stars{ display: inline-flex; gap: 6px; }
+.tcard__stars img{
+  width: 16px; height: 16px; display: block;
+  /* Si ton star.svg n'est pas jaune, utilise une version déjà jaune */
+}
+.tcard__date{
+  font-size: 12px;
+  color: #dddddd;
+}
+
+/* Responsive */
+@media (max-width: 1100px){
+  .testimonials__grid{ grid-template-columns: 1fr; }
+}
+@media (max-width: 900px){
+  body:has(.testimonials) .content{
+    margin-left: 0;
+    padding: 0 16px;
+  }
+  .tcard{ grid-template-columns: 110px 1fr; }
+  .tcard__media{ width:110px; height:110px; }
+}
