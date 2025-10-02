@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio — Jonathan</title>
+  <link rel="preload" as="image" href="https://picsum.photos/seed/hero/200/200">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ===========================
+       SECTION PROJET — BRANDING DESIGN
+       =========================== -->
+
+  <main id="main-content" class="project-page" role="main" aria-label="Page projet — Branding Design">
+
+    <!-- Grille 2 colonnes : gauche (texte/palette/logo) / droite (bannières) -->
+    <section class="project-grid" aria-labelledby="project-title">
+
+      <!-- Panneau noir de fond (contrôlé en CSS via .project-bg) -->
+      <div class="project-bg" aria-hidden="true"></div>
+
+      <!-- ===== Colonne GAUCHE ===== -->
+      <div class="project-col project-col--left">
+
+        <!-- Index -->
+        <p class="project-index" aria-hidden="true">01</p>
+
+        <!-- Titre principal -->
+        <h1 id="project-title" class="project-title">BRANDING<br>DESIGN</h1>
+
+        <!-- Texte d’intro -->
+        <div class="project-intro">
+          <p>
+            <strong>Fragrance Française</strong> est une marque fictive de parfum créée pour illustrer mon expertise en
+            design. Inspirée par l’élégance de la parfumerie française, elle allie tradition et modernité&nbsp;:
+            monogramme «&nbsp;FF&nbsp;», palette raffinée et typographies soignées pour une image luxe. Sa mission&nbsp;:
+            proposer des expériences olfactives d’exception en innovant dans le respect des codes français, portée par des
+            valeurs d’intégrité, de qualité, de créativité et d’authenticité.
+          </p>
+        </div>
+
+        <!-- Palette de couleurs (5 losanges) -->
+        <aside class="project-palette" aria-label="Palette de couleurs">
+          <ul class="palette">
+            <li class="palette__swatch" data-color="#D9CEC3"><span class="sr-only">Beige doux #D9CEC3</span></li>
+            <li class="palette__swatch" data-color="#8B5E3C"><span class="sr-only">Brun ambré #8B5E3C</span></li>
+            <li class="palette__swatch" data-color="#A8A3A0"><span class="sr-only">Gris perlé #A8A3A0</span></li>
+            <li class="palette__swatch" data-color="#6B5F5A"><span class="sr-only">Taupe profond #6B5F5A</span></li>
+            <li class="palette__swatch" data-color="#2B2A2A"><span class="sr-only">Noir fumé #2B2A2A</span></li>
+          </ul>
+        </aside>
+
+        <!-- Logo / Monogramme -->
+        <figure class="project-logo">
+          <!-- remplace le src par ton fichier -->
+          <img src="assets/media/icons/logo/logo-ff-1.png"
+               alt="Monogramme FF — Fragrance Française, Paris" width="280" height="180" />
+          
+        </figure>
+
+        <!-- Bloc “2025 PROJECTS HIGHLIGHTS” -->
+        <div class="project-highlight-heading" aria-label="Mise en avant 2025">
+          <p class="highlight-year">2025</p>
+          <p class="highlight-title">
+            <span class="word-1">PROJECTS</span>
+            <span class="word-2">HIGHLIGHTS</span>
+          </p>
+        </div>
+
+      </div><!-- /col gauche -->
+
+      <!-- ===== Colonne DROITE ===== -->
+      <div class="project-col project-col--right">
+
+        <!-- Bannière 1 -->
+        <figure class="project-banner">
+          <!-- remplace le src par ton image large -->
+          <img src="assets/media/img/projet-1/fleur-de-nuit-image-mock-up-4-2.png"
+               alt="Campagne ‘Fleur de Nuit’ à Paris, Tour Eiffel en arrière-plan" />
+          
+        </figure>
+
+        <!-- Bannière 2 -->
+        <figure class="project-banner">
+          <img src="assets/media/img/projet-1/fleur-de-nuit-image-mock-up-3-2.png"
+               alt="Campagne ‘Fleur de Nuit’ — portrait au coucher du soleil" />
+          
+        </figure>
+
+      </div><!-- /col droite -->
+
+    </section>
+  </main>
+
+</body>
+</html>

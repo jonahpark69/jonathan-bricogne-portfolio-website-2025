@@ -1213,3 +1213,150 @@ body:has(.testimonials) .content{
   .tcard{ grid-template-columns: 110px 1fr; }
   .tcard__media{ width:110px; height:110px; }
 }
+
+/* ====== PAGE PROJET — version compacte ====== */
+
+/* Conteneur principal */
+.project-page{
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #1a1a1a;
+}
+
+/* Grille 2 colonnes */
+.project-grid{
+  position: relative;           /* pour le fond noir */
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 5px;
+  align-items: start;
+  padding-top: 80px;
+}
+
+/* Fond noir à droite (largeur simple à régler) */
+.project-bg{
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 58%;                  /* ← change juste ce nombre (ex. 50%, 60%, 640px) */
+  background: #0f0f10;
+  z-index: 0;
+}
+
+/* Contenu au-dessus du fond */
+.project-col--left,
+.project-col--right{ position: relative; z-index: 1; }
+
+/* Colonne droite (pile les 2 bannières) */
+.project-col--right{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0px;
+  justify-items: start;        /* permet une largeur fixe des bannières */
+}
+
+/* Titres + index (simple) */
+.project-index{ margin: 0 0 8px; font-size: 28px; font-weight: 800; color: #9CA3F9; }
+.project-title{ margin: 0 0 16px; font-size: 44px; font-weight: 900; line-height: 1; text-transform: uppercase; }
+.project-intro{ font-size: 14px; line-height: 1.5; margin-bottom: 16px; }
+.project-intro p{ margin: 0 0 10px; }
+
+/* Palette (losanges) — minimal */
+.palette{ list-style: none; margin: 0 0 16px; padding: 0; display: grid; grid-auto-rows: 26px; gap: 12px; width: 60px; }
+.palette__swatch{ width: 26px; height: 26px; border-radius: 4px; transform: rotate(45deg); box-shadow: 0 1px 3px rgba(0,0,0,.15); }
+.palette__swatch[data-color="#D9CEC3"]{ background:#D9CEC3; }
+.palette__swatch[data-color="#8B5E3C"]{ background:#8B5E3C; }
+.palette__swatch[data-color="#A8A3A0"]{ background:#A8A3A0; }
+.palette__swatch[data-color="#6B5F5A"]{ background:#6B5F5A; }
+.palette__swatch[data-color="#2B2A2A"]{ background:#2B2A2A; }
+
+/* Logo */
+/* Logo / monogramme — décalage local sans impacter la mise en page */
+.project-logo{
+  position: relative;   /* clé : décale le visuel mais garde la place */
+  top: -150px;           /* monte (-) ou descend (+) */
+  left: 120px;           /* va à droite (+) ou à gauche (-) */
+  margin: 8px 0 18px;   /* garde tes marges existantes */
+}
+.project-logo img{
+  display: block;
+  width: 240px;
+  height: auto;
+}
+
+
+/* Headline “2025 PROJECTS HIGHLIGHTS” — scoped et stable */
+.project-page .project-highlight-heading{
+  margin-top: 12px;        /* espace fixe sous le logo (indépendant de sa taille) */
+}
+
+.project-page .project-highlight-heading .highlight-year{
+  margin: 0 0 6px;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.project-page .project-highlight-heading .highlight-title{
+  margin: 0;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.project-page .project-highlight-heading .highlight-title .word-1{
+  color: #8F8BF2;
+  display: inline-block;
+}
+
+.project-page .project-highlight-heading .highlight-title .word-2{
+  color: #1a1a1a;
+  display: block;          /* “HIGHLIGHTS” à la ligne sous PROJECTS */
+}
+
+
+/* ===== Bannières (même taille pour les 2) ===== */
+/* → Modifie SEULEMENT ces 2 valeurs pour largeur/hauteur */
+.project-banner{
+  position: relative;
+  width: 750px;                /* ← largeur commune (ex. 820px, 960px, 100%) */
+  height: 380px;               /* ← hauteur commune (ex. 360px, 500px) */
+  border-radius: 20px;
+  overflow: hidden;
+  background:#000;
+  box-shadow: 0 12px 24px rgba(0,0,0,.18);
+}
+.project-banner img{
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+/* Légende centrée */
+.project-banner__caption{
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; pointer-events: none;
+}
+.banner-title{ font-size: 48px; font-weight: 700; color:#fff; text-shadow: 0 2px 12px rgba(0,0,0,.55); line-height: 1.1; }
+.banner-subtitle{ margin-top: 8px; font-size: 18px; color:#fff; text-shadow: 0 2px 10px rgba(0,0,0,.5); }
+
+/* ===== Responsive bref ===== */
+@media (max-width: 1100px){
+  .project-grid{ grid-template-columns: 320px 1fr; }
+  .project-banner{ width: 100%; height: 380px; }
+  .banner-title{ font-size: 40px; }
+}
+@media (max-width: 820px){
+  .project-bg{ display: none; }              /* on retire le fond noir en mobile */
+  .project-grid{ grid-template-columns: 1fr; gap: 20px; }
+  .project-col--right{ justify-items: stretch; }
+  .project-banner{ width: 100%; height: 320px; }
+}
+@media (max-width: 520px){
+  .project-banner{ height: 260px; }
+  .banner-title{ font-size: 30px; }
+}
+
+
