@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Portfolio — Jonathan</title>
   <link rel="preload" as="image" href="https://picsum.photos/seed/hero/200/200">
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One:wght@400&family=Dongle:wght@300;400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -44,11 +46,21 @@
         <!-- Palette de couleurs (5 losanges) -->
         <aside class="project-palette" aria-label="Palette de couleurs">
           <ul class="palette">
-            <li class="palette__swatch" data-color="#D9CEC3"><span class="sr-only">Beige doux #D9CEC3</span></li>
-            <li class="palette__swatch" data-color="#8B5E3C"><span class="sr-only">Brun ambré #8B5E3C</span></li>
-            <li class="palette__swatch" data-color="#A8A3A0"><span class="sr-only">Gris perlé #A8A3A0</span></li>
-            <li class="palette__swatch" data-color="#6B5F5A"><span class="sr-only">Taupe profond #6B5F5A</span></li>
-            <li class="palette__swatch" data-color="#2B2A2A"><span class="sr-only">Noir fumé #2B2A2A</span></li>
+            <ul id="palette-s1" class="palette-s1" aria-label="Palette — section 1">
+  <li class="palette-s1__swatch swatch-s1--beige">
+    <img src="assets/media/icons/code-couleur/projet-1/couleur-1.svg" alt="Teinte 1">
+  </li>
+  <li class="palette-s1__swatch swatch-s1--terre">
+    <img src="assets/media/icons/code-couleur/projet-1/couleur-2.svg" alt="Teinte 2">
+  </li>
+  <li class="palette-s1__swatch swatch-s1--gris">
+    <img src="assets/media/icons/code-couleur/projet-1/couleur-3.svg" alt="Teinte 3">
+  </li>
+  <li class="palette-s1__swatch swatch-s1--prune">
+    <img src="assets/media/icons/code-couleur/projet-1/couleur-4.svg" alt="Teinte 4">
+  </li>
+</ul>
+
           </ul>
         </aside>
 
@@ -92,6 +104,101 @@
       </div><!-- /col droite -->
 
     </section>
+
+<!-- ====== Section : Galerie "Fleur de Nuit" ====== -->
+<section class="fleur-grid" aria-label="Fleur de Nuit — Galerie">
+  <ul class="fleur-grid__list">
+
+    <!-- 1) Packshot (gauche, 4/3) -->
+    <li class="tile t1">
+      <img src="assets/media/img/projet-1/fleur-de-nuit-packaging-mock-up-5.png" alt="Packshot Fleur de Nuit">
+    </li>
+
+    <!-- 2) Bâche façade (droite, très panoramique) -->
+    <li class="tile t2">
+      <img src="assets/media/img/projet-1/fleur-de-nuit-panneau-mock-up-4.png" alt="Affichage façade Paris">
+    </li>
+
+    <!-- 3) Panoramique Seine (gauche, large) -->
+    <li class="tile t3">
+      <img src="assets/media/img/projet-1/fleur-de-nuit-panneau-mock-up-5-2.png" alt="Campagne sur les quais de Seine">
+    </li>
+
+    <!-- 4) Still life flacon (droite, 4/3) -->
+    <li class="tile t4">
+      <img src="assets/media/img/projet-1/fleur-de-nuit-packaging-mock-up-6.png" alt="Flacon et étui">
+    </li>
+
+    <!-- 5) Cartouche noir (gauche, texte) -->
+    <li class="tile t5">
+      <div class="t5__inner">
+        <p class="t5__eyebrow">COLLECTION 2025 :</p>
+        <p class="t5__title">LE LUXE PARISIEN</p>
+        <p class="t5__subtitle">EN TOUTE SIMPLICITÉ</p>
+      </div>
+    </li>
+
+    <!-- 6) Coffret (milieu bas) -->
+    <li class="tile t6">
+      <img src="assets/media/img/projet-1/fleur-de-nuit-packaging-mock-up-3.png" alt="Coffret Fleur de Nuit">
+    </li>
+
+    <!-- 7) Abribus (droite bas) -->
+    <li class="tile t7">
+      <img src="assets/media/img/projet-1/fleur-de-nuit-panneau-mock-up-3.png" alt="Affichage abribus">
+    </li>
+
+  </ul>
+</section>
+
+<!-- ===== Section : Web Design & Social Media ===== -->
+<section class="wdsm" aria-label="Web Design & Social Media">
+  <!-- Colonne gauche (fond gris + 2 visuels + palette) -->
+  <div class="wdsm__left">
+    <figure class="wdsm__media wdsm__media--top">
+      <img src="assets/media/img/projet-1/mock-up-laptop-1-fragrance-francaise.png" alt="Landing page laptop">
+    </figure>
+
+    <figure class="wdsm__media wdsm__media--grid">
+      <img src="assets/media/img/projet-1/mockup-rs-1.png" alt="Grid social media">
+    </figure>
+
+    <!-- Palette verticale (diamants) -->
+    <ul class="wdsm__palette" aria-label="Palette">
+  <li class="wdsm__swatch swatch--beige"><img src="assets/media/icons/code-couleur/projet-1/couleur-1.svg" alt="Teinte 1"></li>
+  <li class="wdsm__swatch swatch--terre"><img src="assets/media/icons/code-couleur/projet-1/couleur-2.svg" alt="Teinte 2"></li>
+  <li class="wdsm__swatch swatch--gris"><img src="assets/media/icons/code-couleur/projet-1/couleur-3.svg" alt="Teinte 3"></li>
+  <li class="wdsm__swatch swatch--prune"><img src="assets/media/icons/code-couleur/projet-1/couleur-4.svg" alt="Teinte 4"></li>
+</ul>
+
+  </div>
+
+  <!-- Colonne droite (fond blanc, titres, texte, millésime) -->
+  <div class="wdsm__right">
+    <h2 class="wdsm__title">
+      <span>WEB DESIGN</span>
+      <span>ET</span>
+      <span>SOCIAL MEDIA</span>
+    </h2>
+
+    <p class="wdsm__subtitle">L’élégance française, pensée pour le digital.</p>
+
+    <p class="wdsm__text">
+      FRAGRANCE FRANÇAISE déploie son élégance au digital avec un univers web & social minimaliste et cohérent :
+      identité étendue, grilles et rythmes visuels, typographies soignées et palette nocturne autour de Fleur de Nuit.
+      La direction artistique orchestre l’expérience de la landing aux carrousels, stories et bannières, avec lignes éditoriales
+      fines et templates modulaires. Objectif&nbsp;: une présence élégante, mémorable et intemporelle où chaque publication
+      prolonge la signature de la Maison.
+    </p>
+
+    <p class="wdsm__year">
+      <span class="y1">2025</span>
+      <span class="y2">TRE</span>
+      <span class="y3">ND.</span>
+    </p>
+  </div>
+</section>
+
   </main>
 
 </body>

@@ -5,7 +5,35 @@ body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: #1a1a1a;
-  background: #e9e9eb; /* gris clair comme la maquette */
+  background: #e9e9eb; 
+}
+
+/* ========================= */
+/* TYPO OVERRIDES DEMANDÉS   */
+/* ========================= */
+
+/* Paragraphes : Dongle (ne change pas tailles) */
+p { font-family: "Dongle", sans-serif; }
+
+/* Tous les titres/sous-titres : Dela Gothic One (ne change pas tailles) */
+h1, h2, h3, h4, h5, h6,
+.content__head h1,
+.project-title, .banner-title, .banner-subtitle,
+.project-page .project-highlight-heading .highlight-title,
+.project-page .project-highlight-heading .highlight-year,
+.wdsm__title, .wdsm__subtitle,
+.content .contact__title, .content .contact__lead,
+.testimonials__title,
+.cv-title, .cv-block h2, .cv-block h3,
+.about-me__leadline, .about-me__panel-title span,
+.service__title,
+.tcard__name, .tcard__role {
+  font-family: "Dela Gothic One", sans-serif;
+}
+
+/* Conserve la variante « pilule » sans changer les tailles */
+.about-me__panel-title span{
+  font: 700 16px/1 "Dela Gothic One", sans-serif;
 }
 
 /* ===== Layout global ===== */
@@ -150,7 +178,7 @@ body {
 .rail ul::before{
   content: "";
   position: absolute;
-  left: 50%;                   /* centre horizontal */
+  left: 50%;
   transform: translateX(-50%);
   top: -12px;                  /* dépasse un peu au-dessus */
   bottom: -12px;               /* et en-dessous */
@@ -213,10 +241,10 @@ body {
 /* (le trait .dash a été supprimé du HTML, donc pas de règle .dash ici) */
 .content__head h1{
   margin: 0;
-  font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
   letter-spacing: 1px;
-  font-size: 80px;       /* taille desktop */
+  font-size: 60px;       /* taille desktop */
   line-height: 1;
+  margin-bottom: 20px;
 }
 
 /* ===== Filtres (chips) ===== */
@@ -335,63 +363,8 @@ body {
   object-fit: cover;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 1100px){
-  .grid{ grid-template-columns: repeat(3, 1fr); }
-  .grid.bento{ grid-template-columns: repeat(4, 1fr); } /* bento se resserre */
-}
-
-@media (max-width: 900px){
-  .page{ grid-template-columns: 220px 1fr 56px; }
-  .content__head h1{ font-size: 40px; }
-}
-
-@media (max-width: 740px){
-  /* sidebar passe en haut, contenu en dessous, rail caché */
-  .page{
-    grid-template-columns: 1fr;
-  }
-  .rail{ display: none; }
-  .sidebar{
-    grid-template-rows: auto auto;
-    display: grid;
-    grid-column: 1 / -1;
-  }
-  .sidebar__top{ padding: 16px 0; }
-  .menu ul{
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-    padding: 8px 8px 12px 8px;
-  }
-  .menu a{
-    text-align: center;
-    padding: 10px 8px;
-    border-left: 0;
-  }
-
-  .content{ padding: 18px; }
-  .content__head h1{ font-size: 34px; }
-
-  /* Grilles */
-  .grid{ grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .grid.bento{
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 120px;
-  }
-  /* Sur mobile, on simplifie : chaque bloc occupe 1x1 */
-  .grid.bento > li{
-    grid-column: span 1 !important;
-    grid-row: span 1 !important;
-  }
-}
-
-@media (max-width: 420px){
-  .grid{ grid-template-columns: 1fr; }
-}
-
 /* ===============================
    CV PAGE — styles (scopés .cv)
-   Ajoute ce bloc à la fin de ton CSS
    =============================== */
 
 /* Conteneur principal de la page CV (placé dans <main class="content cv">) */
@@ -412,7 +385,6 @@ body {
 }
 .cv-title{
   margin: 0;
-  font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
   font-weight: 900;
   font-size: 56px;
   line-height: 1;
@@ -472,12 +444,6 @@ body {
 .cv-tagline::before{ left: -140px; }                                   /* diamant gauche */
 .cv-tagline::after { right: -140px; transform: translateY(-50%) scaleX(-1); } /* diamant droit en miroir */
 
-/* (option) pour chevauchement encore plus visible : */
-/* .cv-tagline::before, .cv-tagline::after{ width: 38px; height: 38px; } */
-/* ou décale très légèrement : */
-/* .cv-tagline::before, .cv-tagline::after{ top: calc(50% + 1px); } */
-
-
 /* ====== CV grid à 2 colonnes + bloc pleine largeur (+ séparateur central) ====== */
 .cv-grid{
   display: grid;
@@ -517,28 +483,6 @@ body {
 }
 /* au cas où d’anciennes règles mettaient des bordures latérales */
 .cv-mid{ border-left: 0 !important; border-right: 0 !important; }
-
-/* ====== Responsive ====== */
-@media (max-width: 900px){
-  .cv-grid{
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "left"
-      "right"
-      "mid";
-    gap: 20px;
-  }
-  /* on retire le séparateur en mobile */
-  .cv-right::before{ display: none; }
-
-  .cv-mid{
-    margin: 14px 0;
-    padding-top: 14px;
-    padding-bottom: 14px;
-  }
-}
-
-
 
 /* ====== Blocs & titres ====== */
 .cv-block{ margin-bottom: 22px; }
@@ -590,25 +534,6 @@ body {
 
 /* ====== Petites séparations ====== */
 .cv-sep{ height: 1px; background: #111111; opacity: .2; margin: 14px 0; }
-
-/* ====== Responsive ====== */
-@media (max-width: 1100px){
-  .cv-grid{ grid-template-columns: 280px 1fr 280px; }
-  .cv-title{ font-size: 48px; }
-}
-@media (max-width: 900px){
-  .cv-grid{ grid-template-columns: 1fr; }
-  .cv-mid{
-    border-left: 0; border-right: 0; padding: 0;
-    border-top: 2px solid #111111; border-bottom: 2px solid #111111;
-    margin: 14px 0;
-    padding-top: 14px; padding-bottom: 14px;
-  }
-  .cv-header{ grid-template-columns: 1fr; }
-  .cv-header .right .cv-title{ text-align: left; }
-  .cv-deco::before{ left: 10%; }
-  .cv-deco::after{ right: 10%; }
-}
 
 /* ============ CV — Rail social en bas, horizontal, SANS trait ni flèches ============ */
 
@@ -673,28 +598,6 @@ body:has(.content.cv) .rail a{
   background: transparent;
   border-radius: 0;
   box-shadow: none;
-}
-body:has(.content.cv) .rail a:hover img,
-body:has(.content.cv) .rail a:hover svg{
-  transform: translateY(-2px);
-  filter: drop-shadow(6px 10px 16px rgba(0,0,0,0.28));
-}
-body:has(.content.cv) .rail a:active img,
-body:has(.content.cv) .rail a:active svg{
-  transform: translateY(-1px);
-  filter: drop-shadow(4px 8px 12px rgba(0,0,0,0.24));
-}
-
-/* 5) Mobile */
-@media (max-width: 740px){
-  body:has(.content.cv) .page{
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "sidebar"
-      "content"
-      "rail";
-    row-gap: 16px;
-  }
 }
 
 /* ======================= */
@@ -842,20 +745,6 @@ body:has(.content.cv) .rail a:active svg{
   border: 0;
 }
 
-/* Responsive */
-@media (max-width: 900px){
-  .site-footer__inner{
-    grid-template-columns: 1fr;
-  }
-  .site-footer__social-list{
-    flex-wrap: wrap;
-  }
-  .site-footer__bottom{
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
 /* Donne de l'air à gauche et à droite du contenu */
 .about-me__content{
   padding: 10px 40px;   /* top/bottom 10px, left/right 40px */
@@ -868,16 +757,10 @@ body:has(.content.cv) .rail a:active svg{
   min-width: 0;        /* sécurité anti-débordement en grid */
 }
 
-/* Garde propre sur mobile */
-@media (max-width: 900px){
-  .about-me__content{ margin-left: 0; }
-}
-
 
 /* Titre / lead (ligne « I’m Sarita Smith… ») */
 .about-me__leadline{
   margin: 0 0 10px 0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-weight: 400;
   font-size: 34px;
   letter-spacing: 0.2px;
@@ -966,17 +849,6 @@ body:has(.content.cv) .rail a:active svg{
   letter-spacing: 0.8px; line-height: 1.3;
 }
 
-/* Responsive (ramène en 1 colonne si besoin) */
-@media (max-width: 900px){
-  .about-me__panels{ grid-template-columns: 1fr; }
-  .about-me__facts-grid{ grid-template-columns: repeat(3, 1fr); }
-}
-@media (max-width: 640px){
-  .about-me__leadline{ font-size: 28px; }
-  .about-me__facts-grid{ grid-template-columns: repeat(2, 1fr); }
-  .fact__circle{ width: 130px; height: 130px; }
-}
-
 /* ======================= */
 /* Page Contact (scopée)   */
 /* ======================= */
@@ -996,18 +868,9 @@ body:has(.contact) .content{
   min-width: 0;
 }
 
-/* Mobile */
-@media (max-width: 900px){
-  body:has(.contact) .content{
-    margin-left: 0;
-    padding: 0 16px;
-  }
-}
-
 /* Titre principal */
 .content .contact__title{
   margin: 0 0 10px 0;
-  font-family: "Playfair Display", Georgia, serif;
   font-weight: 700;
   font-size: 64px;
   line-height: 1;
@@ -1091,13 +954,6 @@ body:has(.contact) .content{
   color: #1a1a1a;
 }
 
-/* Responsive */
-@media (max-width: 1000px){
-  .content .contact{ padding-left: 24px; padding-right: 24px; }
-  .content .contact__grid{ grid-template-columns: 1fr; gap: 18px; }
-  .content .contact__item{ justify-items: start; text-align: left; }
-}
-
 /* ========================= */
 /* Page Témoignages (scopée) */
 /* ========================= */
@@ -1108,17 +964,10 @@ body:has(.testimonials) .content{
   min-width: 0;
 }
 
-/* Mobile */
-@media (max-width: 900px){
-  body:has(.testimonials) .content{ margin-left: 0; }
-}
-
-
 /* Titre principal */
 .testimonials__head{ margin: 0 0 12px 0; }
 .testimonials__title{
   margin: 0;
-  font-family: "Playfair Display", Georgia, serif;
   font-weight: 700;
   font-size: 64px;
   line-height: 1;
@@ -1201,19 +1050,6 @@ body:has(.testimonials) .content{
   color: #dddddd;
 }
 
-/* Responsive */
-@media (max-width: 1100px){
-  .testimonials__grid{ grid-template-columns: 1fr; }
-}
-@media (max-width: 900px){
-  body:has(.testimonials) .content{
-    margin-left: 0;
-    padding: 0 16px;
-  }
-  .tcard{ grid-template-columns: 110px 1fr; }
-  .tcard__media{ width:110px; height:110px; }
-}
-
 /* ====== PAGE PROJET — version compacte ====== */
 
 /* Conteneur principal */
@@ -1231,8 +1067,7 @@ body:has(.testimonials) .content{
   display: grid;
   grid-template-columns: 380px 1fr;
   gap: 5px;
-  align-items: start;
-  padding-top: 80px;
+  align-items: center;
 }
 
 /* Fond noir à droite (largeur simple à régler) */
@@ -1257,27 +1092,57 @@ body:has(.testimonials) .content{
 }
 
 /* Titres + index (simple) */
-.project-index{ margin: 0 0 8px; font-size: 28px; font-weight: 800; color: #9CA3F9; }
-.project-title{ margin: 0 0 16px; font-size: 44px; font-weight: 900; line-height: 1; text-transform: uppercase; }
+.project-index{
+  margin: 0 0 8px;
+  font-size: 45px;
+  font-weight: 800;
+  color: #9CA3F9;
+  position: relative;  
+}
+
+.project-title{
+  margin: 0 0 16px;
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+  position: relative;
+}
+
 .project-intro{ font-size: 14px; line-height: 1.5; margin-bottom: 16px; }
-.project-intro p{ margin: 0 0 10px; }
 
-/* Palette (losanges) — minimal */
-.palette{ list-style: none; margin: 0 0 16px; padding: 0; display: grid; grid-auto-rows: 26px; gap: 12px; width: 60px; }
-.palette__swatch{ width: 26px; height: 26px; border-radius: 4px; transform: rotate(45deg); box-shadow: 0 1px 3px rgba(0,0,0,.15); }
-.palette__swatch[data-color="#D9CEC3"]{ background:#D9CEC3; }
-.palette__swatch[data-color="#8B5E3C"]{ background:#8B5E3C; }
-.palette__swatch[data-color="#A8A3A0"]{ background:#A8A3A0; }
-.palette__swatch[data-color="#6B5F5A"]{ background:#6B5F5A; }
-.palette__swatch[data-color="#2B2A2A"]{ background:#2B2A2A; }
+.project-intro p{
+  margin: 0 0 10px;
+  position: relative;  
+}
 
-/* Logo */
-/* Logo / monogramme — décalage local sans impacter la mise en page */
+/* ===== Palette — Section 1 ===== */
+#palette-s1{
+  position: absolute;
+  right: 310px;
+  bottom: 120px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0; 
+}
+
+#palette-s1 img{
+  width: 100px;     
+  height: 100px;
+  display: block;
+}
+
+.palette-s1__swatch + .palette-s1__swatch{
+  margin-top: -50px;  
+}
+
 .project-logo{
-  position: relative;   /* clé : décale le visuel mais garde la place */
-  top: -150px;           /* monte (-) ou descend (+) */
-  left: 120px;           /* va à droite (+) ou à gauche (-) */
-  margin: 8px 0 18px;   /* garde tes marges existantes */
+  position: relative;   
+  top: 0px;           
+  left: 120px;          
+  margin: 8px 0 18px;  
 }
 .project-logo img{
   display: block;
@@ -1285,10 +1150,9 @@ body:has(.testimonials) .content{
   height: auto;
 }
 
-
 /* Headline “2025 PROJECTS HIGHLIGHTS” — scoped et stable */
 .project-page .project-highlight-heading{
-  margin-top: 12px;        /* espace fixe sous le logo (indépendant de sa taille) */
+  margin-top: 12px;       
 }
 
 .project-page .project-highlight-heading .highlight-year{
@@ -1313,20 +1177,18 @@ body:has(.testimonials) .content{
 
 .project-page .project-highlight-heading .highlight-title .word-2{
   color: #1a1a1a;
-  display: block;          /* “HIGHLIGHTS” à la ligne sous PROJECTS */
+  display: block;         
 }
 
 
 /* ===== Bannières (même taille pour les 2) ===== */
-/* → Modifie SEULEMENT ces 2 valeurs pour largeur/hauteur */
 .project-banner{
   position: relative;
-  width: 750px;                /* ← largeur commune (ex. 820px, 960px, 100%) */
-  height: 380px;               /* ← hauteur commune (ex. 360px, 500px) */
+  width: 750px;                
+  height: 300px;               
   border-radius: 20px;
   overflow: hidden;
   background:#000;
-  box-shadow: 0 12px 24px rgba(0,0,0,.18);
 }
 .project-banner img{
   width: 100%; height: 100%; object-fit: cover; display: block;
@@ -1342,21 +1204,205 @@ body:has(.testimonials) .content{
 .banner-title{ font-size: 48px; font-weight: 700; color:#fff; text-shadow: 0 2px 12px rgba(0,0,0,.55); line-height: 1.1; }
 .banner-subtitle{ margin-top: 8px; font-size: 18px; color:#fff; text-shadow: 0 2px 10px rgba(0,0,0,.5); }
 
-/* ===== Responsive bref ===== */
-@media (max-width: 1100px){
-  .project-grid{ grid-template-columns: 320px 1fr; }
-  .project-banner{ width: 100%; height: 380px; }
-  .banner-title{ font-size: 40px; }
+/* ====== Section Fleur de Nuit ====== */
+.fleur-grid{
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 80px;
+  padding-bottom: 40px;
 }
-@media (max-width: 820px){
-  .project-bg{ display: none; }              /* on retire le fond noir en mobile */
-  .project-grid{ grid-template-columns: 1fr; gap: 20px; }
-  .project-col--right{ justify-items: stretch; }
-  .project-banner{ width: 100%; height: 320px; }
+
+.fleur-grid__list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  /* grille 12 colonnes pour coller à la maquette */
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
 }
-@media (max-width: 520px){
-  .project-banner{ height: 260px; }
-  .banner-title{ font-size: 30px; }
+
+/* style commun à chaque tuile */
+.tile{
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #f5f5f5;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
+
+.tile img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* remplit proprement la tuile */
+}
+
+/* === Placement (desktop) + HAUTEUR FIXE POUR ALIGNER === */
+/* Ligne 1 */
+.t1{ grid-column: 1 / span 5;  height: 280px; }
+.t2{ grid-column: 6 / span 7;  height: 280px; }
+
+/* Ligne 2 */
+.t3{ grid-column: 1 / span 7;  height: 280px; }
+.t4{ grid-column: 8 / span 5;  height: 280px; }
+
+/* Ligne 3 */
+.t5{ grid-column: 1 / span 5;  height: 280px;  background:#0f0f10; }
+.t6{ grid-column: 6 / span 4;  height: 280px; }
+.t7{ grid-column: 10 / span 3; height: 280px; }
+
+/* Cartouche texte noir (tuile 5) */
+.t5__inner{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px;
+  color: #ffffff;
+}
+
+.t5__eyebrow{
+  margin: 0 0 6px 0;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.t5__title{
+  margin: 0 0 6px 0;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.t5__subtitle{
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* ====== Web Design & Social Media ====== */
+.wdsm{
+  display: grid;
+  grid-template-columns: 62% 38%;
+  gap: 40px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  align-items: start;
+}
+
+/* Colonne gauche */
+.wdsm__left{
+  position: relative;
+  background: #8b8c8f;       /* gris de la maquette */
+  border-radius: 0px;
+  padding: 28px 28px 34px 0; /* ← pas de padding à gauche */
+}
+
+.wdsm__media{
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0 18px 18px 0; /* ← plus d’arrondi côté gauche */
+  background: #ddd;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  height: 300px;
+  width: 640px;       /* ← ajuste ici la largeur souhaitée */
+}
+.wdsm__media--top{ /* rien de spécial */ }
+.wdsm__media--grid{ margin-top: 28px; }  /* juste l’espacement entre les deux */
+
+.wdsm__media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Palette verticale (icônes SVG importées) */
+.wdsm__palette{
+  position: absolute;
+  right: 0px;
+  top: 150px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;                 /* déjà à 0 */
+}
+
+/* ← règle l’écart (négatif = chevauchement). Ex : -8px, -10px, etc. */
+.wdsm__palette li + li{
+  margin-top: -60px;       /* rapproche plus que gap:0 */
+}
+
+
+/* Taille contrôlée en CSS (pas dans le HTML) */
+.wdsm__palette img{
+  width: 140px;
+  height: 140px;
+  display: block;
+}
+
+/* Colonne droite */
+.wdsm__right{
+  display: grid;
+  grid-template-rows: auto auto 1fr auto; /* titre, sous-titre, texte (pousse), millésime */
+  row-gap: 12px;
+  background: #ffffff;
+  padding: 0 8px;
+  min-height: 660px; /* ajuste si besoin pour matcher exactement la maquette */
+}
+
+.wdsm__title{
+  margin: 8px 0 10px;
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1.0;
+  letter-spacing: 1px;
+  color: #1a1a1a;
+  text-transform: uppercase;
+}
+.wdsm__title span{ display:block; }
+
+.wdsm__subtitle{
+  margin: 6px 0 18px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #8f8bf2;  /* bleu/lavande maquette */
+}
+
+.wdsm__text{
+  margin: 0 0 24px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #2b2b2b;
+  max-width: 460px;
+}
+
+/* Bloc "2025 TRE ND." en bas à droite */
+.wdsm__year{
+  margin: 0;
+  align-self: end;      /* bas de la colonne */
+  justify-self: end;    /* droite de la colonne */
+  text-align: right;
+  font-weight: 900;
+  color: #8f8bf2;
+  line-height: 0.95;
+}
+
+.wdsm__year .y1{ font-size: 46px; display:block; }
+.wdsm__year .y2{ font-size: 46px; display:block; }
+.wdsm__year .y3{ font-size: 46px; display:block; }
+
+
+
+
+
+
 
 
